@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta charset = "utf-8">
+	 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	  	<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+   		<title>Flags Trivia</title>
+   		<link rel="shortcut icon" href="img/favicon.ico">
+    	<link rel="stylesheet" href="css/juego.css">
+  	</head>
+ 	<body onload = "siguiente()">
+  	<div>
+  		<button id="home" type="button" onclick="siguiente()">	
+  			<i class="fas fa-reply"></i>	
+  		</button>
+  	</div>
+		<div class="container">
+			<button type="button" onclick="titulo()" class="boton">
+        <h1 id="titulo">Flags Trivia</h1>
+      </button>
+			<div class="col-12" class="row">
+		    <div class="col-12" id="cant_jugadores">
+		     	<button type="button" onclick="" class="boton">
+		          <h2 id="titulo_modo">MODO :</h2>
+		        </button>
+		        <div class="row">
+		          <div class="col-sm-6 col-md-6 col-xl-6">
+                <div id="bloque_modo1">
+                  <button type="button" onclick="modo1()" class="modo_elec">
+                    <h3>1 JUGADOR <i class="fas fa-user"></i></h3>
+                  </button>
+                </div>
+              </div>
+		     		<div class="col-sm-6 col-md-6 col-xl-6">
+                <div id="bloque_modo2">
+                  <button type="button" onclick="modo2()" class="modo_elec">
+                   	<h3>2 JUGADORES <i class="fas fa-user"></i><i class="fas fa-user"></i></h3>
+                  </button>
+                </div>
+              </div>
+		        </div>
+		     	<div id="primer_jugador1" class="bloque">
+              <label>Jugador N°1</label><br>
+              <input name="nombre_jugador1" type="text" id="nombre_jugador1" placeholder="Nombre del jugador 1">
+            </div>
+            <div id="segundo_jugador2" class="bloque">
+              <label>Jugador N°2</label><br>
+              <input name="nombre_jugador2" type="text" id="nombre_jugador2" placeholder="Nombre del jugador 2">
+            </div>
+            <div  class="bloque col-12">
+              <button id="siguiente1" type="button" class="siguiente" onclick="siguiente1()">Siguiente</button>
+            </div>
+		    </div> <!-- FINAL CANT_JUGADORES -->
+		    <div class="col-12" id="selec_tema">
+		      		<div class="row">
+		            <div class="col">
+		              <button type="button" onclick="" class="boton">
+		                <h2 id="titulo_tema">TEMA :</h2>
+		              </button>
+		              <div class="row">                  
+		                <div class="col-sm-4 col-md-4 col-xl-4">
+		                  <div id="bloque_tema_provincias" class="block">
+		                    <button type="button" onclick="tema_provincias()" class="temas_elec">
+		                      <h3>PROVINCIAS</h3>
+		                    </button>
+		                  </div>
+		                </div>
+		                <div class="col-sm-4 col-md-4 col-xl-4">
+		                  <div id="bloque_tema_america" class="block">
+		                    <button type="button" onclick="tema_america()" class="temas_elec">
+		                      <h3>AMERICA</h3>
+		                    </button>
+		                  </div>
+		                </div>
+		                <div class="col-sm-4 col-md-4 col-xl-4">
+		                  <div id="bloque_tema_europa" class="block">
+		                    <button type="button" onclick="tema_europa()" class="temas_elec">
+		                      <h3>EUROPA</h3> 
+		                    </button>                 
+		                  </div>
+		                </div>
+		                  <div class="col-sm-4 col-md-4 col-xl-4">
+		                    <div id="bloque_tema_asia" class="block">
+		                      <button type="button" onclick="tema_asia()" class="temas_elec">
+		                        <h3>ASIA</h3>
+		                      </button>
+		                    </div>
+		                  </div>
+		                  <div class="col-sm-4 col-md-4 col-xl-4">
+		                    <div id="bloque_tema_africa" class="block">
+		                      <button type="button" onclick="tema_africa()" class="temas_elec">
+		                        <h3>AFRICA</h3>
+		                      </button>
+		                    </div>
+		                  </div>
+		                  <div class="col-sm-4 col-md-4 col-xl-4">
+		                    <div id="bloque_tema_oceania" class="block">
+		                      <button type="button" onclick="tema_oceania()" class="temas_elec">
+		                        <h3>OCEANIA</h3>
+		                      </button>
+		                    </div>
+		                  </div>
+	                </div>
+	              </div>
+	              <div class="bloque col-12">
+                  <button id="siguiente2" type="button" class="siguiente" onclick="siguiente2(), comenzar()">
+                  Siguiente
+                	</button>
+                </div>
+	            </div>  
+	      </div> <!-- FINAL SELEC_JUGADORES -->
+				<div class="col-12" id="juego_recuadro">
+	         		<h2>¿QUE BANDERA ES?</h2>
+	         		<div class="row">
+	         			<div class="col">
+	         				<div class="row">
+	         					<div class="col">
+	         						<div class="row">
+	         							<div id="vidas_primer_jugador" class="col"><!-- primera columna -->
+	         								<div class="row">
+	         									<div id="primer_jugador" class="col nombre_pantalla"></div>
+	         								</div>
+	         								<div class="row">
+			         							<div class="col">
+			         								<div id="vidas_jugador1">3 <img class="contadores" src="img/corazon.png"></div>
+			         								<div col-1" id="contador_jugador1">0 <img class="contadores" src="img/bien.png">
+			         								</div>
+			         							</div>
+			         						</div>
+	         							</div>
+	         							<div class="col"><!-- segunda columna -->
+	         								<div id="bandera" class="col"><img src=></div>
+	         							</div>
+	         							<div id="vidas_segundo_jugador" class="col"><!-- tercera columna -->
+	         								<div class="row">
+	         									<div id="segundo_jugador" class="col nombre_pantalla"></div>
+	         								</div>
+	         								<div class="row">
+			         							<div class="col">
+			         								<div id="vidas_jugador2">3 <img class="contadores" src="img/corazon.png"></div>
+			         								<div col-1" id="contador_jugador2">0 <img class="contadores" src="img/bien.png">
+			         								</div>
+			         							</div>
+			         						</div>
+	         							</div>
+		         					</div>
+		         					<div class="row">
+		         						<div id="vidas_1jugador" class="col">
+		         							<div id="vidas_jugador">3 <img class=contadores src="img/corazon.png"></div>
+			         						<div col-1" id="contador_jugador">0 <img class=contadores src="img/bien.png"></div>
+	         							</div>
+		         					</div>
+			         			</div><!---->
+									</div>
+									<div id="opciones4" class="row">
+										<div class="col-6">
+											<div class="row">
+		                    <button class="opcion" id="opcion_1" type="button" onclick="opcion_1()">OPCION N°1</button>
+											</div>
+											<div class="row">
+		                		<button class="opcion" id="opcion_2" type="button" onclick="opcion_2()">OPCION N°2</button>
+											</div>
+										</div>
+										<div class="col-6">
+											<div class="row">
+		                		<button class="opcion" id="opcion_3" type="button" onclick="opcion_3()">OPCION N°3</button>
+											</div>
+											<div id="opc_4" class="row">
+		                		<button class="opcion" id="opcion_4" type="button" onclick="opcion_4()">OPCION N°4</button>
+											</div>
+										</div>
+									</div>
+								</div> <!-- FINAL JUEGO_RECUADRO-->
+			</div>
+		</div>	
+    <footer>
+      &copy;2018  Marcos A. Büchert
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
+</html>
